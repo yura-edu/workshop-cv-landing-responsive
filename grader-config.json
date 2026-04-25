@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0",
+  "templateSlug": "cv-landing-responsive",
+  "evaluationBlocks": [
+    {
+      "blockId": "auto",
+      "evaluationType": "automated_pipeline",
+      "metrics": [
+        {
+          "metricKey": "lighthouse_performance",
+          "worker": "MetricsWorker",
+          "weight": 25,
+          "threshold": 90,
+          "config": {
+            "tool": "lighthouse",
+            "category": "performance",
+            "serveDir": "starter-code"
+          }
+        },
+        {
+          "metricKey": "lighthouse_accessibility",
+          "worker": "MetricsWorker",
+          "weight": 25,
+          "threshold": 90,
+          "config": {
+            "tool": "lighthouse",
+            "category": "accessibility",
+            "serveDir": "starter-code"
+          }
+        },
+        {
+          "metricKey": "responsive_breakpoints",
+          "worker": "MetricsWorker",
+          "weight": 25,
+          "threshold": 3,
+          "config": {
+            "tool": "css-grep",
+            "pattern": "@media",
+            "targetFiles": ["starter-code/css/**/*.css"]
+          }
+        },
+        {
+          "metricKey": "html_errors",
+          "worker": "MetricsWorker",
+          "weight": 25,
+          "threshold": 0,
+          "config": {
+            "tool": "html-validate",
+            "targetFiles": ["starter-code/index.html"]
+          }
+        }
+      ]
+    }
+  ]
+}

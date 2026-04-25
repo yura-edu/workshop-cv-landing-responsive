@@ -1,0 +1,39 @@
+/*
+  responsive.css — Media queries para los 3 breakpoints
+  ======================================================
+  Breakpoints del taller:
+    Mobile:  320px – 767px   → diseño de columna única, hamburger menu
+    Tablet:  768px – 1199px  → diseño de 2 columnas donde aplique
+    Desktop: 1200px+         → diseño completo de múltiples columnas
+*/
+
+/* ── Mobile: 320px – 767px ──────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* TODO: adaptar el nav (mostrar hamburger, ocultar links en horizontal) */
+
+  /* TODO: adaptar el hero (columna única, imagen centrada o reducida) */
+
+  /* TODO: adaptar features (1 columna) */
+
+  /* TODO: adaptar pricing (1 columna) */
+
+  /* TODO: adaptar testimonios (1 columna) */
+
+  /* TODO: adaptar footer (columna única) */
+}
+
+/* ── Tablet: 768px – 1199px ─────────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* TODO: adaptar features (2 columnas) */
+
+  /* TODO: adaptar pricing (2 columnas) */
+
+  /* TODO: adaptar testimonios (2 columnas) */
+
+  /* TODO: adaptar footer (2 columnas) */
+}
+
+/* ── Desktop: 1200px+ ───────────────────────────────────────────────────── */
+@media (min-width: 1200px) {
+  /* TODO: layout completo (features 3 col, hero con imagen lateral, etc.) */
+}

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Estudiantes colaborando en proyectos reales con Yura">
+  <!-- Background -->
+  <rect width="480" height="360" fill="#eef2ff" rx="16"/>
+
+  <!-- Monitor / laptop -->
+  <rect x="120" y="80" width="240" height="160" rx="8" fill="#4f46e5"/>
+  <rect x="130" y="90" width="220" height="140" rx="4" fill="#f0f4ff"/>
+  <rect x="190" y="240" width="100" height="12" rx="4" fill="#4f46e5"/>
+  <rect x="160" y="252" width="160" height="8" rx="4" fill="#6366f1"/>
+
+  <!-- Code lines on screen -->
+  <rect x="148" y="108" width="120" height="8" rx="3" fill="#4f46e5" opacity=".4"/>
+  <rect x="148" y="124" width="80" height="8" rx="3" fill="#818cf8" opacity=".5"/>
+  <rect x="148" y="140" width="140" height="8" rx="3" fill="#4f46e5" opacity=".3"/>
+  <rect x="148" y="156" width="60" height="8" rx="3" fill="#818cf8" opacity=".4"/>
+  <rect x="148" y="172" width="100" height="8" rx="3" fill="#4f46e5" opacity=".3"/>
+  <rect x="148" y="188" width="90" height="8" rx="3" fill="#818cf8" opacity=".4"/>
+
+  <!-- Check badge top-right -->
+  <circle cx="360" cy="100" r="28" fill="#10b981"/>
+  <polyline points="348,100 357,109 374,92" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- People avatars -->
+  <circle cx="80" cy="280" r="30" fill="#6366f1"/>
+  <circle cx="80" cy="265" r="14" fill="#fff" opacity=".9"/>
+  <ellipse cx="80" cy="305" rx="22" ry="14" fill="#fff" opacity=".9"/>
+
+  <circle cx="400" cy="280" r="30" fill="#f59e0b"/>
+  <circle cx="400" cy="265" r="14" fill="#fff" opacity=".9"/>
+  <ellipse cx="400" cy="305" rx="22" ry="14" fill="#fff" opacity=".9"/>
+
+  <!-- Stars / sparkles -->
+  <text x="50" y="130" font-size="20" fill="#fbbf24">★</text>
+  <text x="410" y="160" font-size="14" fill="#818cf8">✦</text>
+  <text x="430" y="220" font-size="18" fill="#4f46e5">★</text>
+</svg>

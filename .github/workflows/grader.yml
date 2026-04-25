@@ -1,0 +1,167 @@
+name: Grader
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      # ── Métrica: responsive_breakpoints ──────────────────────────────────
+      - name: Count media queries
+        id: breakpoints
+        run: |
+          COUNT=$(cat starter-code/css/styles.css starter-code/css/responsive.css 2>/dev/null \
+            | grep -c '@media' || echo "0")
+
+          PASSED=$([ "$COUNT" -ge 3 ] && echo true || echo false)
+          SCORE=$([ "$PASSED" = "true" ] && echo "1.0" || echo "0.0")
+
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "score=$SCORE" >> "$GITHUB_OUTPUT"
+          echo "passed=$PASSED" >> "$GITHUB_OUTPUT"
+          echo "Media queries found: $COUNT (threshold: 3)"
+
+      # ── Métrica: html_errors ──────────────────────────────────────────────
+      - name: Validate HTML
+        id: html
+        run: |
+          npx --yes html-validate starter-code/index.html \
+            --formatter json > html-report.json 2>/dev/null || true
+
+          ERRORS=$(node -e "
+            const fs = require('fs');
+            try {
+              const r = JSON.parse(fs.readFileSync('html-report.json','utf8'));
+              const total = (r.results || []).reduce((s, f) => s + (f.errorCount || 0), 0);
+              console.log(total);
+            } catch { console.log('0'); }
+          ")
+
+          PASSED=$([ "$ERRORS" -eq 0 ] && echo true || echo false)
+          SCORE=$([ "$PASSED" = "true" ] && echo "1.0" || echo "0.0")
+
+          echo "errors=$ERRORS" >> "$GITHUB_OUTPUT"
+          echo "score=$SCORE" >> "$GITHUB_OUTPUT"
+          echo "passed=$PASSED" >> "$GITHUB_OUTPUT"
+          echo "HTML errors: $ERRORS (threshold: 0)"
+
+      # ── Lighthouse ────────────────────────────────────────────────────────
+      - name: Start local server
+        run: npx --yes serve starter-code -p 5000 &
+
+      - name: Wait for server
+        run: |
+          for i in $(seq 1 10); do
+            curl -s http://localhost:5000 > /dev/null && echo "Server ready" && break
+            [ "$i" -eq 10 ] && echo "Server timeout" && exit 1
+            echo "Waiting... ($i)"
+            sleep 1
+          done
+
+      - name: Run Lighthouse
+        id: lighthouse
+        run: |
+          npx --yes lighthouse http://localhost:5000 \
+            --output json \
+            --output-path lighthouse-report.json \
+            --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" \
+            --only-categories=performance,accessibility,best-practices \
+            --quiet 2>/dev/null || true
+
+          PERF=$(node -e "
+            const r = require('./lighthouse-report.json');
+            console.log(Math.round((r.categories.performance?.score || 0) * 100));
+          " 2>/dev/null || echo "0")
+
+          ACC=$(node -e "
+            const r = require('./lighthouse-report.json');
+            console.log(Math.round((r.categories.accessibility?.score || 0) * 100));
+          " 2>/dev/null || echo "0")
+
+          PERF_PASSED=$([ "$PERF" -ge 90 ] && echo true || echo false)
+          ACC_PASSED=$([ "$ACC" -ge 90 ] && echo true || echo false)
+          PERF_SCORE=$([ "$PERF_PASSED" = "true" ] && echo "1.0" || echo "0.0")
+          ACC_SCORE=$([ "$ACC_PASSED" = "true" ] && echo "1.0" || echo "0.0")
+
+          echo "perf=$PERF" >> "$GITHUB_OUTPUT"
+          echo "acc=$ACC" >> "$GITHUB_OUTPUT"
+          echo "perf_passed=$PERF_PASSED" >> "$GITHUB_OUTPUT"
+          echo "acc_passed=$ACC_PASSED" >> "$GITHUB_OUTPUT"
+          echo "perf_score=$PERF_SCORE" >> "$GITHUB_OUTPUT"
+          echo "acc_score=$ACC_SCORE" >> "$GITHUB_OUTPUT"
+          echo "Lighthouse Performance: $PERF | Accessibility: $ACC"
+
+      # ── Reporte final ─────────────────────────────────────────────────────
+      - name: Build grader report
+        run: |
+          cat > grader-report.json << EOF
+          {
+            "schemaVersion": "1.0",
+            "templateSlug": "cv-landing-responsive",
+            "runId": "${{ github.run_id }}",
+            "sha": "${{ github.sha }}",
+            "metrics": [
+              {
+                "metricKey": "lighthouse_performance",
+                "score": ${{ steps.lighthouse.outputs.perf_score }},
+                "passed": ${{ steps.lighthouse.outputs.perf_passed }},
+                "unavailable": false,
+                "rawValue": ${{ steps.lighthouse.outputs.perf }}
+              },
+              {
+                "metricKey": "lighthouse_accessibility",
+                "score": ${{ steps.lighthouse.outputs.acc_score }},
+                "passed": ${{ steps.lighthouse.outputs.acc_passed }},
+                "unavailable": false,
+                "rawValue": ${{ steps.lighthouse.outputs.acc }}
+              },
+              {
+                "metricKey": "responsive_breakpoints",
+                "score": ${{ steps.breakpoints.outputs.score }},
+                "passed": ${{ steps.breakpoints.outputs.passed }},
+                "unavailable": false,
+                "rawValue": ${{ steps.breakpoints.outputs.count }}
+              },
+              {
+                "metricKey": "html_errors",
+                "score": ${{ steps.html.outputs.score }},
+                "passed": ${{ steps.html.outputs.passed }},
+                "unavailable": false,
+                "rawValue": ${{ steps.html.outputs.errors }}
+              }
+            ]
+          }
+          EOF
+          cat grader-report.json
+
+      - name: Upload grader report
+        uses: actions/upload-artifact@v4
+        with:
+          name: grader-report
+          path: grader-report.json
+
+      - name: Upload Lighthouse report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-report
+          path: lighthouse-report.json

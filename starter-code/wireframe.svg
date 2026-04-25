@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1400"
+     font-family="system-ui, sans-serif" font-size="13">
+
+  <!-- Background -->
+  <rect width="800" height="1400" fill="#f8fafc"/>
+
+  <!-- ── HEADER ─────────────────────────────── y=0 h=64 -->
+  <rect x="0" y="0" width="800" height="64" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="20" y="16" width="80" height="32" rx="4" fill="#c7d2fe"/>
+  <text x="60" y="37" fill="#3730a3" font-weight="700" text-anchor="middle">LOGO</text>
+  <text x="450" y="36" fill="#475569" text-anchor="middle">Inicio · Características · Precios · Testimonios</text>
+  <rect x="700" y="20" width="80" height="28" rx="4" fill="#4f46e5"/>
+  <text x="740" y="38" fill="white" text-anchor="middle" font-size="12">Empezar gratis</text>
+
+  <!-- ── HERO ──────────────────────────────── y=64 h=320 -->
+  <rect x="0" y="64" width="800" height="320" fill="#eef2ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="100" fill="#64748b" font-size="11">HERO SECTION</text>
+
+  <!-- Left: copy -->
+  <rect x="40" y="120" width="340" height="36" rx="4" fill="#c7d2fe"/>
+  <text x="210" y="143" fill="#3730a3" text-anchor="middle" font-size="16" font-weight="700">Título principal (h1)</text>
+  <rect x="40" y="168" width="300" height="14" rx="3" fill="#ddd6fe"/>
+  <rect x="40" y="188" width="260" height="14" rx="3" fill="#ddd6fe"/>
+  <rect x="40" y="220" width="160" height="44" rx="6" fill="#4f46e5"/>
+  <text x="120" y="247" fill="white" text-anchor="middle" font-weight="600">Empezar gratis →</text>
+
+  <!-- Right: illustration -->
+  <rect x="430" y="110" width="320" height="240" rx="8" fill="#c7d2fe" opacity=".5"/>
+  <text x="590" y="238" fill="#4f46e5" text-anchor="middle" font-size="12">[images/hero.svg]</text>
+
+  <!-- ── FEATURES ────────────────────────── y=384 h=280 -->
+  <rect x="0" y="384" width="800" height="280" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="410" fill="#64748b" font-size="11">FEATURES SECTION</text>
+  <text x="400" y="436" fill="#1e293b" text-anchor="middle" font-size="16" font-weight="700">¿Por qué Yura? (h2)</text>
+
+  <!-- 3 cards -->
+  <rect x="40"  y="456" width="210" height="180" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <rect x="295" y="456" width="210" height="180" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <rect x="550" y="456" width="210" height="180" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+
+  <circle cx="145" cy="490" r="20" fill="#4f46e5"/>
+  <text x="145" y="496" fill="white" text-anchor="middle" font-size="16">✦</text>
+  <rect x="60"  y="520" width="170" height="12" rx="3" fill="#4f46e5" opacity=".4"/>
+  <rect x="60"  y="542" width="150" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="60"  y="558" width="130" height="10" rx="3" fill="#94a3b8"/>
+
+  <circle cx="400" cy="490" r="20" fill="#4f46e5"/>
+  <text x="400" y="496" fill="white" text-anchor="middle" font-size="16">⚡</text>
+  <rect x="315" y="520" width="170" height="12" rx="3" fill="#4f46e5" opacity=".4"/>
+  <rect x="315" y="542" width="150" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="315" y="558" width="130" height="10" rx="3" fill="#94a3b8"/>
+
+  <circle cx="655" cy="490" r="20" fill="#4f46e5"/>
+  <text x="655" y="496" fill="white" text-anchor="middle" font-size="16">↺</text>
+  <rect x="570" y="520" width="170" height="12" rx="3" fill="#4f46e5" opacity=".4"/>
+  <rect x="570" y="542" width="150" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="570" y="558" width="130" height="10" rx="3" fill="#94a3b8"/>
+
+  <!-- ── PRICING ─────────────────────────── y=664 h=320 -->
+  <rect x="0" y="664" width="800" height="320" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="690" fill="#64748b" font-size="11">PRICING SECTION</text>
+  <text x="400" y="714" fill="#1e293b" text-anchor="middle" font-size="16" font-weight="700">Planes (h2)</text>
+
+  <!-- Plan Básico -->
+  <rect x="80" y="730" width="270" height="234" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="215" y="762" fill="#475569" text-anchor="middle" font-size="14" font-weight="600">Plan Básico</text>
+  <text x="215" y="788" fill="#1e293b" text-anchor="middle" font-size="22" font-weight="700">Gratis</text>
+  <rect x="100" y="806" width="110" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="100" y="824" width="140" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="100" y="842" width="120" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="115" y="910" width="140" height="36" rx="6" fill="#e2e8f0"/>
+  <text x="185" y="933" fill="#475569" text-anchor="middle" font-size="13">Comenzar</text>
+
+  <!-- Plan Pro -->
+  <rect x="450" y="730" width="270" height="234" rx="8" fill="#4f46e5" stroke="#4f46e5" stroke-width="2"/>
+  <rect x="530" y="733" width="110" height="22" rx="11" fill="#fbbf24"/>
+  <text x="585" y="748" fill="#1e293b" text-anchor="middle" font-size="11" font-weight="700">RECOMENDADO</text>
+  <text x="585" y="770" fill="white" text-anchor="middle" font-size="14" font-weight="600">Plan Pro</text>
+  <text x="585" y="796" fill="white" text-anchor="middle" font-size="22" font-weight="700">$49/mes</text>
+  <rect x="470" y="814" width="110" height="10" rx="3" fill="white" opacity=".4"/>
+  <rect x="470" y="832" width="140" height="10" rx="3" fill="white" opacity=".4"/>
+  <rect x="470" y="850" width="120" height="10" rx="3" fill="white" opacity=".4"/>
+  <rect x="470" y="868" width="130" height="10" rx="3" fill="white" opacity=".4"/>
+  <rect x="485" y="918" width="200" height="36" rx="6" fill="white"/>
+  <text x="585" y="941" fill="#4f46e5" text-anchor="middle" font-size="13" font-weight="600">Contratar</text>
+
+  <!-- ── TESTIMONIALS ────────────────────── y=984 h=280 -->
+  <rect x="0" y="984" width="800" height="280" fill="white" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="1010" fill="#64748b" font-size="11">TESTIMONIALS SECTION</text>
+  <text x="400" y="1034" fill="#1e293b" text-anchor="middle" font-size="16" font-weight="700">Lo que dicen nuestros usuarios (h2)</text>
+
+  <!-- 3 testimonial cards -->
+  <rect x="20"  y="1050" width="234" height="190" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <rect x="283" y="1050" width="234" height="190" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <rect x="546" y="1050" width="234" height="190" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+
+  <!-- Avatar + name placeholders -->
+  <circle cx="60" cy="1086" r="22" fill="#6366f1"/>
+  <rect x="92" y="1074" width="100" height="12" rx="3" fill="#1e293b"/>
+  <rect x="92" y="1092" width="80" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="30" y="1120" width="200" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="30" y="1138" width="180" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="30" y="1156" width="160" height="10" rx="3" fill="#94a3b8"/>
+
+  <circle cx="323" cy="1086" r="22" fill="#f59e0b"/>
+  <rect x="355" y="1074" width="100" height="12" rx="3" fill="#1e293b"/>
+  <rect x="355" y="1092" width="80" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="293" y="1120" width="200" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="293" y="1138" width="180" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="293" y="1156" width="160" height="10" rx="3" fill="#94a3b8"/>
+
+  <circle cx="586" cy="1086" r="22" fill="#10b981"/>
+  <rect x="618" y="1074" width="100" height="12" rx="3" fill="#1e293b"/>
+  <rect x="618" y="1092" width="80" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="556" y="1120" width="200" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="556" y="1138" width="180" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="556" y="1156" width="160" height="10" rx="3" fill="#94a3b8"/>
+
+  <!-- ── FOOTER ──────────────────────────── y=1264 h=136 -->
+  <rect x="0" y="1264" width="800" height="136" fill="#1e293b"/>
+  <text x="24" y="1288" fill="#94a3b8" font-size="11">FOOTER</text>
+  <rect x="20"  y="1300" width="80" height="24" rx="4" fill="#4f46e5"/>
+  <text x="60" y="1317" fill="white" text-anchor="middle" font-size="12" font-weight="700">yura</text>
+  <rect x="20"  y="1334" width="180" height="10" rx="3" fill="#475569"/>
+  <rect x="20"  y="1352" width="140" height="10" rx="3" fill="#475569"/>
+  <rect x="300" y="1300" width="100" height="12" rx="3" fill="#64748b"/>
+  <rect x="300" y="1322" width="80" height="10" rx="3" fill="#475569"/>
+  <rect x="300" y="1340" width="90" height="10" rx="3" fill="#475569"/>
+  <rect x="500" y="1300" width="100" height="12" rx="3" fill="#64748b"/>
+  <rect x="500" y="1322" width="80" height="10" rx="3" fill="#475569"/>
+  <rect x="500" y="1340" width="90" height="10" rx="3" fill="#475569"/>
+  <text x="400" y="1388" fill="#475569" text-anchor="middle" font-size="11">© 2026 Yura. Todos los derechos reservados.</text>
+
+  <!-- Labels de breakpoints -->
+  <rect x="0" y="0" width="2" height="1400" fill="#4f46e5"/>
+  <rect x="798" y="0" width="2" height="1400" fill="#4f46e5"/>
+  <text x="4" y="20" fill="#4f46e5" font-size="10">← 800px (Desktop) →</text>
+</svg>
